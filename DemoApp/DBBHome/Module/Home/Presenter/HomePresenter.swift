@@ -31,6 +31,10 @@ extension HomePresenter: HomePresenterProtocol{
         router?.navigateToDetailModule(movie: movie)
     }
     
+    func goToAlert(message: String) {
+        router?.navigateToAlert(message: message)
+    }
+    
     //MARK: - Data
     
     func doGetMovies(page: Int) {
@@ -44,7 +48,7 @@ extension HomePresenter: HomePresenterProtocol{
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.doGetMoviesError()
+                self?.doGetMoviesError(errorMessage: error.localizedDescription)
             }
         })
         
@@ -54,8 +58,8 @@ extension HomePresenter: HomePresenterProtocol{
         view?.reloadCollectionView()
     }
     
-    func doGetMoviesError() {
-        
+    func doGetMoviesError(errorMessage: String) {
+        goToAlert(message: errorMessage)
     }
     
     //MARK: - UICollectionView

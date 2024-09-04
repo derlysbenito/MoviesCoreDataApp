@@ -43,4 +43,10 @@ extension HomeRouter: HomeRouterProtocol{
         coordinator?.presenter?.pushViewController(viewController: vc, animate: true)
     }
     
+    func navigateToAlert(message: String) {
+        let alertController = UIAlertController(title: "App", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+        coordinator?.presenter?.presentViewController(viewController: alertController, animate: true)
+    }
+    
 }

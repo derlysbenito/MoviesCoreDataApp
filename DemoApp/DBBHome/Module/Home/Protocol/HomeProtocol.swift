@@ -12,6 +12,7 @@ protocol HomeRouterProtocol: AnyObject{
     func createHomeModule() -> UIViewController
     
     func navigateToDetailModule(movie: MovieCoreDataModel)
+    func navigateToAlert(message: String)
 }
 
 protocol HomePresenterProtocol: AnyObject{
@@ -23,12 +24,13 @@ protocol HomePresenterProtocol: AnyObject{
     
     func doGetMovies(page: Int)
     func dogetMoviesSuccess()
-    func doGetMoviesError()
+    func doGetMoviesError(errorMessage: String)
     
     func numberOfRows() -> Int
     func movieItem(section: Int, index: Int) -> MovieCoreDataModel
     
     func goToDetailModule(movie: MovieCoreDataModel)
+    func goToAlert(message: String)
     
 }
 
