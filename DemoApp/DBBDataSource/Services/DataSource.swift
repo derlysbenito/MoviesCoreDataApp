@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 typealias MoviesResultError = (DataResponse<MainResponse, AFError>) -> Void
 

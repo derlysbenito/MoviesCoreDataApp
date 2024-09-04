@@ -17,8 +17,8 @@ class HomeRouterSpy: HomeRouterProtocol{
         return UIViewController()
     }
     
-    func navigateToDetailModule(movie: ResultsResponse?) {
-        isNavigateToDetailModule = true
+    func navigateToDetailModule(movie: DemoApp.MovieCoreDataModel) {
+        var isNavigateToDetailModule = true
     }
     
 }

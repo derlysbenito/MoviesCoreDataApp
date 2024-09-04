@@ -62,7 +62,7 @@ extension HomeViewController: HomeViewProtocol{
 
 extension HomeViewController: HomeCollectionViewCellActionDelegate{
     
-    func didSelectCell(model: ResultsResponse?) {
+    func didSelectCell(model: MovieCoreDataModel) {
         presenter?.goToDetailModule(movie: model)
     }
     

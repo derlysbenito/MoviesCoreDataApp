@@ -18,7 +18,12 @@ class DetailRouter{
 }
 
 extension DetailRouter: DetailRouterProtocol{
-    func createDetailModule(movie: ResultsResponse?) -> UIViewController {
+    
+    var mainStoryBoard: UIStoryboard{
+        return UIStoryboard(name: "MovieDetail", bundle: Bundle.main)
+    }
+    
+    func createDetailModule(movie: MovieCoreDataModel) -> UIViewController {
         guard let vc = mainStoryBoard.instantiateViewController(withIdentifier: "DetailVC")
                 as? DetailViewController else { return UIViewController() }
         
@@ -30,11 +35,6 @@ extension DetailRouter: DetailRouterProtocol{
         
         vc.presenter = presenter
         return vc
-    }
-    
-    
-    var mainStoryBoard: UIStoryboard{
-        return UIStoryboard(name: "MovieDetail", bundle: Bundle.main)
     }
     
 }

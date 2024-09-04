@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let mainPresenter = MainPresenter()
-        let coordinator = LoginCoordinator(presenter: mainPresenter)
-        coordinator.presentLoginModule()
+        let coordinator = HomeCoordinator(presenter: mainPresenter)
+        coordinator.presentHomeModule()
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = mainPresenter
         window?.makeKeyAndVisible()

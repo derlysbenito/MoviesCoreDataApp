@@ -11,7 +11,7 @@ class DetailPresenter{
     var router: DetailRouterProtocol?
     var interactor: DetailInteractorProtocol?
     weak var view: DetailViewProtocol?
-    var movie: ResultsResponse?
+    var movie: MovieCoreDataModel?
 }
 
 extension DetailPresenter: DetailPresenterProtocol{

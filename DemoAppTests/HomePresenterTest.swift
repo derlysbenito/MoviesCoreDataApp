@@ -54,7 +54,7 @@ final class HomePresenterTest: XCTestCase {
     func test_givenPresenter_whenGoToDetailModule_thenNavigateToDetailModule(){
         
         //Given
-        let model = ResultsResponse(imageMovie: "", posterPath: "", title: "", rating: 2.1, releaseDate: "", overview: "")
+        let model = MovieCoreDataModel()
         
         //When
         sut?.goToDetailModule(movie: model)

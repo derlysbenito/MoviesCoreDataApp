@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 protocol HomeCollectionViewCellActionDelegate: AnyObject{
-    func didSelectCell(model: ResultsResponse?)
+    func didSelectCell(model: MovieCoreDataModel)
 }
 
 class HomeCollectionViewCell: UICollectionViewCell{
@@ -19,11 +19,11 @@ class HomeCollectionViewCell: UICollectionViewCell{
     @IBOutlet weak var movieTitleLabel: UILabel!
     weak var delegate : HomeCollectionViewCellActionDelegate?
     
-    var movieModel: ResultsResponse?
+    var movieModel: MovieCoreDataModel?
     
     //MARK: - Data
     
-    public func fillCell(item: ResultsResponse){
+    public func fillCell(item: MovieCoreDataModel){
         movieModel = item
         
         guard let imageURL = movieModel?.imageMovie else { return }
@@ -35,7 +35,7 @@ class HomeCollectionViewCell: UICollectionViewCell{
     //MARK: - IBAction
     
     @IBAction func selectCell(_ sender: Any) {
-        delegate?.didSelectCell(model: movieModel)
+        delegate?.didSelectCell(model: movieModel!)
     }
     
 }

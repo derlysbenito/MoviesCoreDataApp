@@ -16,6 +16,8 @@
 		D134705F2C88B36B000E3CD1 /* HomeRouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134705E2C88B36B000E3CD1 /* HomeRouterSpy.swift */; };
 		D13470612C88B379000E3CD1 /* HomeViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13470602C88B379000E3CD1 /* HomeViewSpy.swift */; };
 		D13470632C88B3B8000E3CD1 /* HomeInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13470622C88B3B8000E3CD1 /* HomeInteractorMock.swift */; };
+		D134706A2C88BBE9000E3CD1 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13470692C88BBE9000E3CD1 /* CoreDataHelper.swift */; };
+		D13470742C88CB74000E3CD1 /* MoviesDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D13470722C88CB74000E3CD1 /* MoviesDataBase.xcdatamodeld */; };
 		D18B26D22BF1DA8100320534 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B26D12BF1DA8100320534 /* CoordinatorProtocol.swift */; };
 		D18B26D62BF1DAB800320534 /* HomeCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B26D52BF1DAB800320534 /* HomeCoordinatorProtocol.swift */; };
 		D18B26D82BF1DAC300320534 /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B26D72BF1DAC300320534 /* MainPresenterProtocol.swift */; };
@@ -74,6 +76,8 @@
 		D134705E2C88B36B000E3CD1 /* HomeRouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouterSpy.swift; sourceTree = "<group>"; };
 		D13470602C88B379000E3CD1 /* HomeViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSpy.swift; sourceTree = "<group>"; };
 		D13470622C88B3B8000E3CD1 /* HomeInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorMock.swift; sourceTree = "<group>"; };
+		D13470692C88BBE9000E3CD1 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		D13470732C88CB74000E3CD1 /* MoviesDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesDataBase.xcdatamodel; sourceTree = "<group>"; };
 		D18B26D12BF1DA8100320534 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		D18B26D52BF1DAB800320534 /* HomeCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		D18B26D72BF1DAC300320534 /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -149,6 +153,23 @@
 				D13470602C88B379000E3CD1 /* HomeViewSpy.swift */,
 			);
 			path = Spy;
+			sourceTree = "<group>";
+		};
+		D13470672C88BBBE000E3CD1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D13470692C88BBE9000E3CD1 /* CoreDataHelper.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D13470682C88BBC5000E3CD1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D18B26F62BF1E07100320534 /* DataSource.swift */,
+				D13470592C88AFC7000E3CD1 /* DataSourceProtocol.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D18B26CE2BF1D9DD00320534 /* SupportingFiles */ = {
@@ -265,8 +286,8 @@
 		D18B26F22BF1DF8800320534 /* DBBDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				D18B26F62BF1E07100320534 /* DataSource.swift */,
-				D13470592C88AFC7000E3CD1 /* DataSourceProtocol.swift */,
+				D13470682C88BBC5000E3CD1 /* Services */,
+				D13470672C88BBBE000E3CD1 /* CoreData */,
 			);
 			path = DBBDataSource;
 			sourceTree = "<group>";
@@ -431,6 +452,7 @@
 		D1EDDF442BF1D8A600803935 = {
 			isa = PBXGroup;
 			children = (
+				D13470722C88CB74000E3CD1 /* MoviesDataBase.xcdatamodeld */,
 				D1EDDF4F2BF1D8A600803935 /* DemoApp */,
 				D18B276F2BF2B96A00320534 /* DemoAppTests */,
 				D1EDDF4E2BF1D8A600803935 /* Products */,
@@ -659,6 +681,7 @@
 				D1EDDF512BF1D8A600803935 /* AppDelegate.swift in Sources */,
 				D18B27292BF2ABDB00320534 /* LoginPresenter.swift in Sources */,
 				D18B27212BF27C8F00320534 /* LoginProtocol.swift in Sources */,
+				D13470742C88CB74000E3CD1 /* MoviesDataBase.xcdatamodeld in Sources */,
 				D1EDDF532BF1D8A600803935 /* SceneDelegate.swift in Sources */,
 				D18B27102BF26A2D00320534 /* DetailViewController.swift in Sources */,
 				D18B272B2BF2ABEC00320534 /* LoginInteractor.swift in Sources */,
@@ -671,6 +694,7 @@
 				D18B26D62BF1DAB800320534 /* HomeCoordinatorProtocol.swift in Sources */,
 				D18B270E2BF26A1800320534 /* DetailInteractor.swift in Sources */,
 				D18B26F12BF1DC9000320534 /* HomeViewController.swift in Sources */,
+				D134706A2C88BBE9000E3CD1 /* CoreDataHelper.swift in Sources */,
 				D18B27272BF2ABC900320534 /* LoginRouter.swift in Sources */,
 				D18B26F92BF1E09B00320534 /* MainResponse.swift in Sources */,
 			);
@@ -861,6 +885,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8F8HP8Y6S9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -892,6 +917,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8F8HP8Y6S9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -946,6 +972,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D13470722C88CB74000E3CD1 /* MoviesDataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D13470732C88CB74000E3CD1 /* MoviesDataBase.xcdatamodel */,
+			);
+			currentVersion = D13470732C88CB74000E3CD1 /* MoviesDataBase.xcdatamodel */;
+			path = MoviesDataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D1EDDF452BF1D8A600803935 /* Project object */;
 }

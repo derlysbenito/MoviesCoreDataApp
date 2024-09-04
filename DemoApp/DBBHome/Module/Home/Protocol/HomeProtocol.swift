@@ -11,7 +11,7 @@ import UIKit
 protocol HomeRouterProtocol: AnyObject{
     func createHomeModule() -> UIViewController
     
-    func navigateToDetailModule(movie: ResultsResponse?)
+    func navigateToDetailModule(movie: MovieCoreDataModel)
 }
 
 protocol HomePresenterProtocol: AnyObject{
@@ -26,9 +26,9 @@ protocol HomePresenterProtocol: AnyObject{
     func doGetMoviesError()
     
     func numberOfRows() -> Int
-    func movieItem(section: Int, index: Int) -> ResultsResponse
+    func movieItem(section: Int, index: Int) -> MovieCoreDataModel
     
-    func goToDetailModule(movie: ResultsResponse?)
+    func goToDetailModule(movie: MovieCoreDataModel)
     
 }
 

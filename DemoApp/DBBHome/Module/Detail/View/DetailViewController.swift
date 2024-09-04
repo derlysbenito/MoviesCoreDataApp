@@ -39,7 +39,7 @@ class DetailViewController: UIViewController{
 }
 
 extension DetailViewController: DetailViewProtocol{
-    func displaInfo(movie: ResultsResponse?) {
+    func displaInfo(movie: MovieCoreDataModel?) {
         guard let imageURL = movie?.posterPath else { return }
         imageMovie.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(imageURL)"))
         
@@ -48,4 +48,5 @@ extension DetailViewController: DetailViewProtocol{
         dateLabel.text = movie?.releaseDate
         overviewLabel.text = movie?.overview
     }
+
 }

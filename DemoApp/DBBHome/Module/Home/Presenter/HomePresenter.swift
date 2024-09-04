@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class HomePresenter{
     
@@ -13,10 +14,10 @@ class HomePresenter{
     var interactor: HomeInteractorProtocol?
     weak var view: HomeViewProtocol?
     
-    private var moviesList = [ResultsResponse]()
+    private var moviesList = [MovieCoreDataModel]()
 }
 
-extension HomePresenter: HomePresenterProtocol{
+extension HomePresenter: HomePresenterProtocol{    
     
     //MARK: - Life Cycle
     
@@ -26,7 +27,7 @@ extension HomePresenter: HomePresenterProtocol{
     
     //MARK: - Navigation
     
-    func goToDetailModule(movie: ResultsResponse?) {
+    func goToDetailModule(movie: MovieCoreDataModel) {
         router?.navigateToDetailModule(movie: movie)
     }
     
@@ -38,7 +39,7 @@ extension HomePresenter: HomePresenterProtocol{
             case .success(let dataInfo):
                 if let data = dataInfo.results{
                     print(data)
-                    self?.moviesList.append(contentsOf: data)
+                    self?.saveMoviesDB(movies: data)
                     self?.dogetMoviesSuccess()
                 }
             case .failure(let error):
@@ -50,6 +51,7 @@ extension HomePresenter: HomePresenterProtocol{
     }
     
     func dogetMoviesSuccess() {
+        loadMoviesDB()
         view?.reloadCollectionView()
     }
     
@@ -63,8 +65,55 @@ extension HomePresenter: HomePresenterProtocol{
         return moviesList.count
     }
     
-    func movieItem(section: Int, index: Int) -> ResultsResponse {
+    func movieItem(section: Int, index: Int) -> MovieCoreDataModel {
         return moviesList[index]
+    }
+    
+    //MARK: - CoreData
+    
+    private func saveMoviesDB(movies: [ResultsResponse]){
+        let context = CoreDataHelper.shared.persistentContainer.viewContext
+        
+        for movieItem in movies {
+            let movieCDM = MovieCoreDataModel(context: context)
+            movieCDM.imageMovie = movieItem.imageMovie
+            movieCDM.posterPath = movieItem.posterPath
+            movieCDM.title = movieItem.title
+            movieCDM.rating = movieItem.rating ?? 0
+            movieCDM.releaseDate = movieItem.releaseDate
+            movieCDM.overview = movieItem.overview
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error al guardar en Core Data: \(error.localizedDescription.description)")
+            }
+        }
+    }
+    
+    private func loadMoviesDB(){
+        let context = CoreDataHelper.shared.persistentContainer.viewContext
+        
+        let request: NSFetchRequest<MovieCoreDataModel> = MovieCoreDataModel.fetchRequest()
+        
+        do {
+            moviesList = try context.fetch(request)
+        } catch {
+            print("Error al cargar en Core Data: ", error.localizedDescription)
+        }
+    }
+    
+    private func deleteMoviesDB(){
+        let context = CoreDataHelper.shared.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = MovieCoreDataModel.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+        } catch {
+            print("Error al eliminar en Core Data: ", error.localizedDescription)
+        }
     }
     
 }
