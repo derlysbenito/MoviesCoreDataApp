@@ -51,16 +51,15 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(view?.isReloadCollectionView, true, "view?.reloadCollectionView was reloaded")
     }
     
-    func test_givenPresenter_whenGoToDetailModule_thenNavigateToDetailModule(){
-        
+    func test_givenPresenter_whenDoGetMoviesError_thenNavigateToAlert(){
         //Given
-        let model = MovieCoreDataModel()
+        let errorMessage = "Error de conexión"
         
         //When
-        sut?.goToDetailModule(movie: model)
+        sut?.doGetMoviesError(errorMessage: errorMessage)
         
         //Then
-        XCTAssertEqual(router?.isNavigateToDetailModule, true, "router?.isNavigateToDetailModule is true")
+        XCTAssertEqual(router?.isNavigateToAlert, true, "router?.isNavigateToAlert is true")
     }
     
 }

@@ -12,6 +12,7 @@ import UIKit
 class HomeRouterSpy: HomeRouterProtocol{
     
     var isNavigateToDetailModule = false
+    var isNavigateToAlert = false
     
     func createHomeModule() -> UIViewController {
         return UIViewController()
@@ -21,4 +22,7 @@ class HomeRouterSpy: HomeRouterProtocol{
         var isNavigateToDetailModule = true
     }
     
+    func navigateToAlert(message: String) {
+        isNavigateToAlert = true
+    }
 }
