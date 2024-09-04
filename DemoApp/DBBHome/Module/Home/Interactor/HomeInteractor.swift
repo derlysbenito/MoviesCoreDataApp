@@ -19,6 +19,7 @@ class HomeInteractor{
 
 extension HomeInteractor: HomeInteractorProtocol{
     func getMovies(page: Int, onCompletion: @escaping MoviesResultError) {
+        print("service page: ", page)
         dataSource?.getMovieUpcoming(page: page, callbackHandler: { response in
             onCompletion(response)
         })

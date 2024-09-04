@@ -51,7 +51,6 @@ extension HomePresenter: HomePresenterProtocol{
     }
     
     func dogetMoviesSuccess() {
-        loadMoviesDB()
         view?.reloadCollectionView()
     }
     
@@ -82,7 +81,7 @@ extension HomePresenter: HomePresenterProtocol{
             movieCDM.rating = movieItem.rating ?? 0
             movieCDM.releaseDate = movieItem.releaseDate
             movieCDM.overview = movieItem.overview
-            
+            moviesList.append(movieCDM)
             do {
                 try context.save()
             } catch {
